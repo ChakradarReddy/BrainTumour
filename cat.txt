@@ -1,6 +1,6 @@
 Flask
-opencv-python==4.5.5.64
-numpy==1.22.3
-tensorflow==2.8.0
-tensorflow-io-gcs-filesystem==0.25.0
-imutils==0.5.4
+opencv-python
+numpy
+tensorflow
+tensorflow-io-gcs-filesystem
+imutils
