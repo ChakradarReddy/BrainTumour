@@ -1,7 +1,6 @@
 absl-py
 ansible
 apache-libcloud
-apturl
 argcomplete
 astunparse
 async-generator
