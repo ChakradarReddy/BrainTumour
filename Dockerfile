@@ -1,4 +1,4 @@
-FROM python
+FROM tensorflow
 WORKDIR ./
 COPY . .
 RUN pip install -r cat.txt
