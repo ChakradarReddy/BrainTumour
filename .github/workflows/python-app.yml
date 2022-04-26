@@ -37,9 +37,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }} 
 
   
-    - name: Heroku login status
-      run:  heroku auth:whoami
-                    
+                   
     - name: Deploy to heroku        
       uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
       with:
