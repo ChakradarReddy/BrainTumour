@@ -67,7 +67,7 @@ def get_images():
     y=detect('./static/given_img.png') 
 
     if(y>0.9):
-        ans = 'You have brain tumour with probability '+ str(y)
+        ans = 'You have brain tumour with probability  '+ str(y)
     if(y<=0.9):
         ans = 'You dont have brain tumour with probability of '+ str(1-y)
     image_names = os.listdir('./static')
