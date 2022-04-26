@@ -21,11 +21,6 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.6
-        
-    - name: Install dependencies
-      run: pip3 install -r cat.txt
-
-
 
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4
