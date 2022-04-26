@@ -4,3 +4,4 @@ numpy
 tensorflow
 tensorflow-io-gcs-filesystem
 imutils
+gunicorn
