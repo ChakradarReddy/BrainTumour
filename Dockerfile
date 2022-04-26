@@ -2,5 +2,5 @@ FROM tensorflow/tensorflow
 WORKDIR ./
 COPY . .
 RUN pip install -r cat.txt
-EXPOSE 3000
+EXPOSE 8080
 CMD ["gunicorn", "app:app"]
