@@ -2,18 +2,13 @@ from flask import Flask,render_template, request, redirect, send_from_directory
 import os
 import cv2
 import numpy as np
+import imutils
+from os import listdir
 import tensorflow as tf
 # from tensorflow.keras.layers import Conv2D, Input, ZeroPadding2D, BatchNormalization, Activation, MaxPooling2D, Flatten, Dense
 from tensorflow.keras.models import Model, load_model
 # from tensorflow.keras.callbacks import TensorBoard, ModelCheckpoint
 
-import cv2
-import imutils
-import argparse
-import numpy as np
-import matplotlib.pyplot as plt
-import time
-from os import listdir
 
 def preprocess(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
