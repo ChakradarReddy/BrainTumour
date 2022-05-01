@@ -9,6 +9,67 @@ import tensorflow as tf
 from tensorflow.keras.models import Model, load_model
 # from tensorflow.keras.callbacks import TensorBoard, ModelCheckpoint
 
+import unittest
+import warnings 
+import logging
+logging.basicConfig(filename='mask_logs.log',format='%(asctime)s %(message)s')
+logger=logging.getLogger()
+logger.setLevel(logging.INFO)
+#logging.info('This is an info message')
+def get_image(i):       
+	path = "./sample_test_images/"+str(i)+".jpg"
+	return path      
+print("Beginning Testing...")
+
+class TestModel(unittest.TestCase):
+    def test1(self):        
+        result = detect(get_image(1))
+        print("Prediction of Img ",1,":- ",int(result<0.9))
+        logger.info("Prediction of Img 1:- %d ",result)
+        self.assertEqual(1, int(result<0.9))
+        
+      
+    def test2(self):        
+        result = detect(get_image(2))
+        print("Prediction of Img ",2,":- ",result)
+        logger.info("Prediction of Img 2:- %d ",result)
+        self.assertEqual(0, int(result<0.9))
+        
+      
+    def test3(self):        
+        result= detect(get_image(3))
+        print("Prediction of Img ",3,":- ",result)
+        logger.info("Prediction of Img 3:- %d ",result)
+        self.assertEqual(1, int(result<0.9))
+        
+
+      
+    def test4(self):        
+        result = detect(get_image(4))
+        print("Prediction of Img ",4,":- ",result)
+        logger.info("Prediction of Img 4 is :- %d ",result)
+        self.assertEqual(1, int(result<0.9))
+        
+      
+    def test5(self):        
+        result = detect(get_image(5))
+        print("Prediction of Img ",5,":- ",result)
+        logger.info("Prediction of Img 5:- %d ",result)
+        self.assertEqual(1, int(result<0.9))
+        
+              
+    def test6(self):        
+        result = detect(get_image(6))
+        print("Prediction of Img ",6,":- ",result)
+        logger.info("Prediction of Img 6:- %d ",result)
+        self.assertEqual(0, int(result<0.9))
+        
+      
+    def test7(self):        
+        result = detect(get_image(7))
+        print("Prediction of Img ",7,":- ",result)
+        logger.info("Prediction of Img 7:- %d ",result)
+        self.assertEqual(1, int(result<0.9))
 
 def preprocess(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -62,7 +123,7 @@ def get_images():
     y=detect('./static/given_img.png') 
 
     if(y>0.9):
-        ans = 'You have brain tumour with probability  '+ str(y)
+        ans = 'You have brain tumour with probability '+ str(y)
     if(y<=0.9):
         ans = 'You dont have brain tumour with probability of '+ str(1-y)
     image_names = os.listdir('./static')
@@ -70,4 +131,5 @@ def get_images():
 
 
 if __name__ =="__main__":
-     app.run(debug=False)
+     unittest.main()
+     app.run(port=3000,debug=False)
