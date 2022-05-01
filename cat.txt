@@ -3,3 +3,6 @@ opencv-python
 numpy
 imutils
 gunicorn
+unittest
+warnings 
+logging
