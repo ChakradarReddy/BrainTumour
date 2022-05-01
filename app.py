@@ -129,7 +129,6 @@ def get_images():
     image_names = os.listdir('./static')
     return render_template('post_index.html',image_names=image_names, ans = ans)
 
-
 if __name__ =="__main__":
      unittest.main()
      app.run(port=3000,debug=False)
