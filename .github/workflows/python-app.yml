@@ -23,7 +23,7 @@ jobs:
         python-version: 3.6
 
     - name: Build and Push Docker Image
-      uses: pennsignals/publish_docker-compose@v0.1.0
+      uses: mr-smithers-excellent/docker-build-push@v4
       with:
         image: chakradar/braintumour
         tag: latest
