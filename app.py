@@ -143,6 +143,7 @@ def get_images():
     # image_1 = cv2.imread('./static/given_img.png')
     
     y=detect('./static/given_img.png') 
+    logger.info("Prediction of given image is:- %d ",y)
 
     if(y>0.9):
         ans = 'You have brain tumour with probability '+ str(y)
