@@ -31,7 +31,6 @@ def error_403(e):
 def error_401(e):
     return render_template("error.html", error="401"), 401
 
-import unittest
 import warnings 
 import logging
 logging.basicConfig(filename='mask_logs.log',format='%(asctime)s %(message)s')
@@ -43,55 +42,6 @@ def get_image(i):
 	return path      
 print("Beginning Testing...")
 
-class TestModel(unittest.TestCase):
-    def test1(self):        
-        result = detect(get_image(1))
-        print("Prediction of Img ",1,":- ",int(result<0.9))
-        logger.info("Prediction of Img 1:- %d ",result)
-        self.assertEqual(1, int(result<0.9))
-        
-      
-    def test2(self):        
-        result = detect(get_image(2))
-        print("Prediction of Img ",2,":- ",result)
-        logger.info("Prediction of Img 2:- %d ",result)
-        self.assertEqual(0, int(result<0.9))
-        
-      
-    def test3(self):        
-        result= detect(get_image(3))
-        print("Prediction of Img ",3,":- ",result)
-        logger.info("Prediction of Img 3:- %d ",result)
-        self.assertEqual(1, int(result<0.9))
-        
-
-      
-    def test4(self):        
-        result = detect(get_image(4))
-        print("Prediction of Img ",4,":- ",result)
-        logger.info("Prediction of Img 4 is :- %d ",result)
-        self.assertEqual(1, int(result<0.9))
-        
-      
-    def test5(self):        
-        result = detect(get_image(5))
-        print("Prediction of Img ",5,":- ",result)
-        logger.info("Prediction of Img 5:- %d ",result)
-        self.assertEqual(1, int(result<0.9))
-        
-              
-    def test6(self):        
-        result = detect(get_image(6))
-        print("Prediction of Img ",6,":- ",result)
-        logger.info("Prediction of Img 6:- %d ",result)
-        self.assertEqual(0, int(result<0.9))
-        
-      
-    def test7(self):        
-        result = detect(get_image(7))
-        print("Prediction of Img ",7,":- ",result)
-        logger.info("Prediction of Img 7:- %d ",result)
-        self.assertEqual(1, int(result<0.9))
 
 def preprocess(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -153,5 +103,4 @@ def get_images():
     return render_template('post_index.html',image_names=image_names, ans = ans)
 
 if __name__ =="__main__":
-     unittest.main()
      app.run(port=3000,debug=False)
