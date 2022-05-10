@@ -40,6 +40,9 @@ jobs:
         heroku_app_name: "brain-tumour-detection"
         heroku_email: "chakradarreddy12@gmail.com"
         usedocker: true
+        
+    - name: ELK monitoring using filebeat
+      run: docker-compose up -d
 
 
 
