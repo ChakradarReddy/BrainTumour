@@ -23,6 +23,19 @@
 
      
 </div>
+  <div class="middle">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <!--add custom content with inheritance-->
+        {% block content %}
+        {% endblock %}
+    </div>
 <div class = "middle">
     <h2>What is this?</h2>
     <p>This is a website for brain tumour detection, an algorithm based on deep neural networks.Upload scanned brain image here and the DNN model will
